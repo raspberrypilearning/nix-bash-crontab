@@ -1,76 +1,71 @@
-# New project
+### Automating Scripts with Crontab
 
-Each project contains a set of directories for each language, you're set up now with an `en` directory that contains the necessary files to get you going.
+Sometime you don't want to manually start a script that you have written manually. What you need is for the script to run once every hour, or maybe once every thirty seconds, or every time your computer starts. On *nix systems this is a fairly easy task, using a program called **Cron**. Cron will run any command it is told to, at certain times, by referencing what is known as the **cron table** which is normally abbreviated to **crontab**.
 
-* [meta.yml](#metayml)
-* [Steps - step_1.md, step_2.md, etc](#steps)
+*[*nix]: Computers running a *UNIX-like* operating system. (MacOS or GNU/Linux)
 
+#### Editing the crontab
 
-## meta.yml
+1. To open the crontab, you first need to open a Terminal. Then you can type:
 
-The `meta.yml` file sets lots of basic information for the project.
+	~~~bash
+	crontab -e
+	~~~
 
-``` yml
-title: The title of the project
-hero_image: images/banner.png # The image used on the listing view
-subtitle: Project subtitle # Used on the listing view
-description: Project description # Used on the listing view
-published: false # A boolean - `true` or`false` - that controls whether the project will appear on the listing view
-steps: # A list of all the steps
-  - title: How to get started # Used as the sidebar title for the step
-    duration: 60 # Not used yet
+1. The `-e` in this command is short for *edit*. If this is your first time opening your crontab then you'll be asked which text editor you would like to use.
+
+	![editor-choice](images/crontab-editor.png)
+	
+1. Unless you have plenty of experience using **ed** or **vim**, the simplest editor to use is **nano**, so type `2` to choose it and press **Enter**.
+
+	![crontab in nano](images/crontab-nano.png)
+	
+1. Nano is a simple command line text editor. If you want to learn more about using nano then you can have a look at [this resource](link-to-nano-resource).
+
+*[command line]: A way of interfacing with your computer using text commands.
+*[text editor]: A program for reading and editing text files.
+
+#### Syntax for cron
+
+The crontab contains all the basic information you need to get started. Each line starts with a `#` which is a comment, and so ignored by the computer. At the bottom of the crontab you should see a line that looks like this:
+
+```bash
+# m h  dom mon dow   command
 ```
 
-## Steps
+- `m` is short for **minute**
+- `h` is short for **hour**
+- `dom` is short for **day of the month**
+- `mon` is short for **month**
+- `dow` is short for **day of the week**
+- `command` is the bash command that you want to run
 
-* [Links](#links)
-* [Resources](#resources)
-* [Images](#images)
-* [Definitions](#definitions)
-* [Hints](#hints)
+#### Creating a new cron job
 
-Project steps are written in the [Kramdown](https://kramdown.gettalong.org/) variety of markdown. There is a [quick reference guide](https://kramdown.gettalong.org/quickref.html) and [full syntax documentation](https://kramdown.gettalong.org/syntax.html).
+To create a cron job you need to decide under which circumstances you would like it to run. For instance, If you wanted to run a Python script every 30 minutes you would write the following:
 
-### Links, resources & images
-
-See [kramdown documentation](https://kramdown.gettalong.org/quickref.html#links-and-images) for more details.
-
-#### Links
-
-A [link](http://kramdown.gettalong.org) to the kramdown homepage.
-
-#### Resources
-
-A [link to a file in the resources directory](resources/worksheet.pdf){:download='filename.pdf'}. The download part will make the file automatically download rather than be rendered in the browser, the filename you'd like the file to be saved with is the second bit after the `=`. The `/slash learning` application will ensure the resource is available.
-
-#### Images
-
-![Banner image](images/banner.png) - the link text becomes the alternative text for the image. The `/slash learning` application will ensure the image is available.
-
-### Definitions
-
-Definitions can be written using HTML abbreviations, which are a standard part of [kramdown](https://kramdown.gettalong.org/quickref.html#abbreviations)
-
+```bash
+30 * * * * python3 /home/pi/my_cool_script.py
 ```
-To do this you might require a variable or a two word definition.
 
-*[variable]: An object that has a name and stores a value.
+The `30` is telling the script to run every 30 minutes. The asterisks are there to say that the script needs running for all **legal values** for the other fields.
 
-*[two word]: Definitions are markdown, and can have [links](http://kramdown.gettalong.org) etc
+Here are a few more examples.
+
+| What will happen...                              | crontab syntax                    |
+|--------------------------------------------------|-----------------------------------|
+| Run a script at 11:59 every Tuesday              | 59 11 * * 2 python3 /home/pi/my_script.py  |
+| Run a script once a week on Monday               | 0 0 * * 1 python3 /home/pi/my_script.py    |
+| Run a script at 12:00 on the 1st of Jan and June | 0 12 1 1,6 * python3 /home/pi/my_script.py |
+
+#### Run on boot
+One incredibly useful feature of cron, is the ability to run a command when the computer boots up. To do this, you use the `@reboot` syntax. For instance:
+
+```bash
+@reboot python3 /home/pi/my_cool_script.py
 ```
 
 
-### Hints
 
-Still very much a work in progress, but here's how you could get one to work currently. The id `#hint-1` on the heading and the class `.hint-1` on the body must match up.
 
-```
-### Hint
-{: .hint-heading #hint-1 }
 
-Here's a hint of how to do this project. Just a change to force an update.
-{: .hint-content .hint-1 }
-
-And a little more text for the first hint.
-{: .hint-content .hint-1 }
-```
