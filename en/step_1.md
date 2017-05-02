@@ -65,7 +65,5 @@ One incredibly useful feature of cron, is the ability to run a command when the 
 @reboot python3 /home/pi/my_cool_script.py
 ```
 
-
-
-
-
+#### Edit and Save the file.
+You can add in your cron job to the bottom of the crontab. Then save and exit nano by pressing **Ctrl + x** and then typing **y** when you are prompted to save. 
