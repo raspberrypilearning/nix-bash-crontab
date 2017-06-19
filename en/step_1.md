@@ -52,9 +52,9 @@ Here are a few more examples.
 
 | What will happen...                              | crontab syntax                    |
 |--------------------------------------------------|-----------------------------------|
-| Run a script at 11:59 every Tuesday              | 59 11 * * 2 python3 /home/pi/my_script.py  |
-| Run a script once a week on Monday               | 0 0 * * 1 python3 /home/pi/my_script.py    |
-| Run a script at 12:00 on the 1st of Jan and June | 0 12 1 1,6 * python3 /home/pi/my_script.py |
+| Run a script at 11:59 every Tuesday              | `59 11 * * 2 python3 /home/pi/my_script.py`  |
+| Run a script once a week on Monday               | `0 0 * * 1 python3 /home/pi/my_script.py`    |
+| Run a script at 12:00 on the 1st of Jan and June | `0 12 1 1,6 * python3 /home/pi/my_script.py` |
 
 #### Run on boot
 One incredibly useful feature of cron, is the ability to run a command when the computer boots up. To do this, you use the `@reboot` syntax. For instance:
