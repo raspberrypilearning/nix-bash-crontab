@@ -1,5 +1,3 @@
-### Automating Scripts with Crontab
-
 Sometime you don't want to manually start a script that you have written manually. What you need is for the script to run once every hour, or maybe once every thirty seconds, or every time your computer starts. On *nix systems this is a fairly easy task, using a program called **Cron**. Cron will run any command it is told to, at certain times, by referencing what is known as the **cron table** which is normally abbreviated to **crontab**.
 
 *[*nix]: Computers running a *UNIX-like* operating system. (MacOS or GNU/Linux)
