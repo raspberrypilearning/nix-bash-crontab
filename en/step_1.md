@@ -18,7 +18,7 @@ Sometime you don't want to manually start a script that you have written manuall
 
 	![crontab in nano](images/crontab-nano.png)
 	
-1. Nano is a simple command line text editor. If you want to learn more about using nano then you can have a look at [this resource](link-to-nano-resource).
+1. Nano is a simple command line text editor. If you want to learn more about using nano then you can have a look at [this resource](nix-bash-using-nano).
 
 *[command line]: A way of interfacing with your computer using text commands.
 *[text editor]: A program for reading and editing text files.
