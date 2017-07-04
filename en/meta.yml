@@ -1,9 +1,13 @@
 title: Automate tasks with cron
 hero_image: images/banner.png
-subtitle: nix-automate-tasks-with-crontab subtitle
-description: nix-automate-tasks-with-crontab description
-original_url: https://codeclubprojects.org/en-GB/scratch/rock-band
+description: Use cron to automate tasks
+original_url:
 theme: cc-prototype
-published: false
+duration: 1
+listed: false
+ingredient: true
+copyedit: false
+interests: ""
+technologies: "bash, nix"
 steps:
   - title: Automate tasks with cron
