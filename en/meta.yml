@@ -1,6 +1,6 @@
-title: Automate tasks with cron
+title: Automate tasks with Cron
 hero_image: images/banner.png
-description: Use cron to automate tasks
+description: Use Cron to automate tasks
 original_url:
 theme: cc-prototype
 duration: 1
@@ -10,4 +10,4 @@ copyedit: false
 interests: ""
 technologies: "bash, nix"
 steps:
-  - title: Automate tasks with cron
+  - title: Automate tasks with Cron
