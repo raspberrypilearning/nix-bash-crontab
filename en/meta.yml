@@ -1,0 +1,13 @@
+title: Automate tasks with Cron
+hero_image: images/banner.png
+description: Use Cron to automate tasks
+original_url:
+theme: cc-prototype
+duration: 1
+listed: false
+ingredient: true
+copyedit: true
+interests: ""
+technologies: "bash, nix"
+steps:
+  - title: Automate tasks with Cron
