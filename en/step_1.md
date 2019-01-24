@@ -40,10 +40,16 @@ The crontab contains all the basic information you need to get started. Each lin
 
 ### Creating a new Cron job
 
-To create a Cron job you need to decide under which circumstances you would like it to run. For instance, if you wanted to run a Python script every 30 minutes, you would write the following:
+To create a Cron job you need to decide under which circumstances you would like it to run. For instance, if you wanted to run a Python script on the 30th minute of every hour, you would write the following:
 
 ```bash
 30 * * * * python3 /home/pi/my_cool_script.py
+```
+
+If you wanted it to run every 30 minutes you would use:
+
+```bash
+*/30 * * * * python3 /home/pi/my_cool_script.py
 ```
 
 The `30` is telling the script to run every 30 minutes. The asterisks indicate that the script needs to run for all **legal values** for the other fields.
