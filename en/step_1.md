@@ -12,7 +12,17 @@ Sometime you don't want to manually start a script that you have written. You ma
 
 - The `-e` in this command is short for *edit*. If this is your first time opening your crontab, then you'll be asked which text editor you would like to use.
 
-	![editor-choice](images/crontab-editor.png)
+```bash
+rpf@raspberrypi:~ $ crontab -e
+no crontab for rpf - using an empty one
+
+Select an editor.  To change later, run 'select-editor'.
+  1. /bin/nano        <---- easiest
+  2. /usr/bin/vim.tiny
+  3. /bin/ed
+
+Choose 1-3 [1]: 
+```
 	
 - Unless you have plenty of experience using **ed** or **vim**, the simplest editor to use is **nano**, so type `2` to choose it and press `Enter`.
 
@@ -40,16 +50,16 @@ The crontab contains all the basic information you need to get started. Each lin
 
 ### Creating a new Cron job
 
-To create a Cron job you need to decide under which circumstances you would like it to run. For instance, if you wanted to run a Python script on the 30th minute of every hour, you would write the following:
+To create a Cron job you need to decide under which circumstances you would like it to run. For instance, if you wanted to run a Python script on the 30th minute of every hour, you would write the following, but make sure to change the `rpf` username to your own username.
 
 ```bash
-30 * * * * python3 /home/pi/my_cool_script.py
+30 * * * * python3 /home/rpf/my_cool_script.py
 ```
 
 If you wanted it to run every 30 minutes you would use:
 
 ```bash
-*/30 * * * * python3 /home/pi/my_cool_script.py
+*/30 * * * * python3 /home/rpf/my_cool_script.py
 ```
 
 The `30` is telling the script to run every 30 minutes. The asterisks indicate that the script needs to run for all **legal values** for the other fields.
@@ -67,7 +77,7 @@ Here are a few more examples.
 One incredibly useful feature of Cron is its ability to run a command when the computer boots up. To do this, you use the `@reboot` syntax. For instance:
 
 ```bash
-@reboot python3 /home/pi/my_cool_script.py
+@reboot python3 /home/rpf/my_cool_script.py
 ```
 
 ### Edit and save the file
